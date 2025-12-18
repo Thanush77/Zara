@@ -27,37 +27,38 @@ export default function AdminOrdersPage() {
         <div>
             <h1 className={styles.heading}>Order Management</h1>
 
-            <div className={styles.card}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <div className={styles.tableCard}>
+                <table className={styles.table}>
                     <thead>
-                        <tr style={{ textAlign: 'left', borderBottom: '2px solid #ecf0f1' }}>
-                            <th style={{ padding: '1rem', color: '#7f8c8d' }}>ID</th>
-                            <th style={{ padding: '1rem', color: '#7f8c8d' }}>Customer</th>
-                            <th style={{ padding: '1rem', color: '#7f8c8d' }}>Items</th>
-                            <th style={{ padding: '1rem', color: '#7f8c8d' }}>Total</th>
-                            <th style={{ padding: '1rem', color: '#7f8c8d' }}>Status</th>
-                            <th style={{ padding: '1rem', color: '#7f8c8d' }}>Action</th>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {orders.map(order => (
-                            <tr key={order.id} style={{ borderBottom: '1px solid #ecf0f1' }}>
-                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>#{order.id}</td>
-                                <td style={{ padding: '1rem' }}>{order.customer}</td>
-                                <td style={{ padding: '1rem' }}>{order.items}</td>
-                                <td style={{ padding: '1rem' }}>₹{order.total}</td>
-                                <td style={{ padding: '1rem' }}>
+                            <tr key={order.id}>
+                                <td style={{ fontWeight: 'bold' }}>#{order.id}</td>
+                                <td>{order.customer}</td>
+                                <td>{order.items}</td>
+                                <td>₹{order.total}</td>
+                                <td>
                                     <span style={{
                                         backgroundColor: statusColors[order.status],
                                         color: 'white',
                                         padding: '0.25rem 0.75rem',
-                                        borderRadius: '12px',
-                                        fontSize: '0.85rem'
+                                        borderRadius: '50px',
+                                        fontSize: '0.8rem',
+                                        fontWeight: 600
                                     }}>
                                         {order.status}
                                     </span>
                                 </td>
-                                <td style={{ padding: '1rem' }}>
+                                <td>
                                     {order.status !== 'Delivered' && (
                                         <button
                                             onClick={() => {
@@ -71,7 +72,8 @@ export default function AdminOrdersPage() {
                                                 background: 'transparent',
                                                 padding: '0.3rem 0.8rem',
                                                 borderRadius: '4px',
-                                                cursor: 'pointer'
+                                                cursor: 'pointer',
+                                                fontSize: '0.85rem'
                                             }}
                                         >
                                             Next Stage &rarr;
