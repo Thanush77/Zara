@@ -1,0 +1,112 @@
+.page {
+    min-height: 100vh;
+    background: white;
+}
+
+.hero {
+    background: var(--primary);
+    color: white;
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: var(--font-outfit);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.intro h2 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 3rem;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.benefitCard {
+    padding: 2rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    transition: transform 0.3s;
+}
+
+.benefitCard:hover {
+    transform: translateY(-5px);
+}
+
+.benefitCard h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+}
+
+.benefitCard p {
+    color: #666;
+}
+
+.openings h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--foreground);
+}
+
+.list {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+}
+
+.jobRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--gray-200);
+    transition: background 0.2s;
+}
+
+.jobRow:last-child {
+    border-bottom: none;
+}
+
+.jobRow:hover {
+    background: var(--gray-50);
+}
+
+.jobTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--primary);
+}
+
+.jobMeta {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .jobRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,82 @@
+.section {
+    padding: 6rem 1rem;
+    background-color: #fffaf0;
+    /* Warm Light Background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.heading {
+    font-family: var(--font-outfit);
+    font-size: 2.5rem;
+    color: #5c3a21;
+    /* Coffee Brown */
+    margin-bottom: 3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.imageWrapper {
+    position: relative;
+    /* Required for next/image fill */
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.1);
+}
+
+.itemTitle {
+    font-size: 1.5rem;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.itemDesc {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.price {
+    font-weight: 700;
+    color: #8b4513;
+    /* Rust */
+    font-size: 1.25rem;
+}

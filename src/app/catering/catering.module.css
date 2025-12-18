@@ -1,0 +1,126 @@
+.page {
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.info {
+    padding: 6rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1542856204-00173e352b2d?q=80&w=2670&auto=format&fit=crop');
+    background-size: cover;
+    position: relative;
+    color: white;
+}
+
+.info::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.info>* {
+    position: relative;
+    z-index: 1;
+}
+
+.info h1 {
+    font-family: var(--font-outfit);
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.lead {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+.features li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.formSection {
+    padding: 6rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-50);
+}
+
+.card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow-xl);
+}
+
+.card h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-family: var(--font-outfit);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: var(--foreground);
+    font-size: 0.9rem;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background: var(--gray-50);
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+    .split {
+        grid-template-columns: 1fr;
+    }
+
+    .info,
+    .formSection {
+        padding: 4rem 1.5rem;
+    }
+}

@@ -1,0 +1,99 @@
+.page {
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+    background-color: var(--gray-50);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: var(--font-outfit);
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+}
+
+.form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--gray-100);
+    padding-bottom: 0.5rem;
+}
+
+.paymentMock {
+    background: var(--gray-100);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px dashed var(--gray-500);
+}
+
+.submitBtn {
+    width: 100%;
+}
+
+/* Summary Side */
+.summary {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+}
+
+.summaryTitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+}
+
+.itemList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.totalRow {
+    padding-top: 1rem;
+    border-top: 2px solid var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

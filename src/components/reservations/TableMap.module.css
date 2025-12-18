@@ -1,0 +1,242 @@
+.scene {
+    width: 100%;
+    height: 600px;
+    perspective: 1000px;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(circle at center, #f5f5f7 0%, #e1e1e6 100%);
+    border-radius: 20px;
+}
+
+.floor {
+    width: 80%;
+    height: 80%;
+    background-color: #f0f0f0;
+    /* Concrete Tile Texture */
+    background-image:
+        linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%, #e6e6e6),
+        linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%, #e6e6e6);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(-30deg);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-radius: 4px;
+    box-shadow:
+        10px 10px 0 #d1d1d1,
+        0 40px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Container */
+.tableWrapper {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.tableWrapper:hover {
+    transform: translate(-50%, -50%) translateZ(10px);
+}
+
+.tableWrapper.selected {
+    transform: translate(-50%, -50%) translateZ(15px) scale(1.05);
+}
+
+.tableWrapper.selected .tableTop {
+    background: var(--primary);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* The Table */
+.table {
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 5;
+}
+
+.tableTop {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 4px solid #d4a373;
+    /* Wood Trim */
+    border-radius: 50%;
+    transform: translateZ(30px);
+    /* Table Height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #8b5e34;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tableLeg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(0);
+    width: 10px;
+    height: 30px;
+    background: #555;
+    /* Metal Leg */
+    transform-origin: bottom center;
+    transform: translate(-50%, -50%) rotateX(-90deg) translateY(-15px);
+    /* Upright cylinder approach is tricky in pure CSS, simpler to just use a box */
+}
+
+/* Base Shadow */
+.tableBase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) translateZ(0.5px);
+    filter: blur(2px);
+}
+
+/* Chairs */
+.chairs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+}
+
+.chair {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    transform-origin: center center;
+    transform-style: preserve-3d;
+}
+
+.chairSeat {
+    width: 100%;
+    height: 100%;
+    background: #8b5e34;
+    border-radius: 6px;
+    transform: translateZ(18px);
+    /* Seat Height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chairBack {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #6d4c41;
+    transform-origin: bottom;
+    transform: translateZ(18px) rotateX(-15deg);
+    border-radius: 4px;
+}
+
+/* Variations */
+.type4 .tableTop {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    /* Soft Square */
+}
+
+.type6 .tableTop {
+    width: 110px;
+    height: 70px;
+    /* Rectangular */
+    border-radius: 12px;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Removed 3D rotation for readability, simpler is better */
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+.tooltip strong {
+    display: block;
+    font-size: 0.85rem;
+}
+
+.tooltip span {
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+/* Decor */
+.plants {
+    font-size: 2rem;
+    position: absolute;
+    transform: translateZ(0) rotateX(-90deg);
+    /* Flat sprite approach? */
+    filter: hue-rotate(40deg);
+}
+
+.counter {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 60px;
+    /* Wider */
+    background: #2c3e50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(20px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.instruction {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+    pointer-events: none;
+}
